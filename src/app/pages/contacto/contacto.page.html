@@ -1,0 +1,22 @@
+<ion-header>
+  <ion-toolbar color="primario-oscuro">
+    <ion-buttons slot="start">
+      <app-atras></app-atras>
+    </ion-buttons>
+    <ion-title>Contacto</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <form #formulario="ngForm" (ngSubmit)="contactar(formulario)" class="ion-padding-top">    
+    <ion-item>
+      <ion-label>Asunto</ion-label>
+      <ion-input type="text" placeholder="Tema de contacto" name="nombre" [(ngModel)]="mensaje" required></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Mensaje</ion-label>
+      <ion-input type="text" placeholder="Cuerpo del mensaje" name="apellido" [(ngModel)]="asunto" required></ion-input>
+    </ion-item>
+    <ion-button class="ion-margin-vertical" color="primario-oscuro" expand="block" type="submit" [disabled]="formulario.invalid" routerLink="/dispositivos">Enviar comentario</ion-button>
+  </form>
+</ion-content>

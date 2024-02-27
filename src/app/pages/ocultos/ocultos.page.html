@@ -1,0 +1,49 @@
+<ion-header>
+  <ion-toolbar color="primario-oscuro">
+    <ion-buttons slot="start">
+      <app-atras></app-atras>
+    </ion-buttons>
+    <ion-title>Dispositivos ocultos</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-card>
+    <ion-card-header color="secundario-oscuro" routerLink="/dispositivo">
+      <ion-card-title>Cesto de papá</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-row class="ion-padding-top">
+        <ion-col size="6">
+          <ion-text color="dark">
+            <ion-card-subtitle>Generado: 200gr</ion-card-subtitle>
+            <ion-card-subtitle>Tiempo: 6hrs</ion-card-subtitle>
+            <ion-card-subtitle>Capacidad: 5kg</ion-card-subtitle>
+          </ion-text>
+        </ion-col>
+        <ion-col size="6">
+          <ion-row>
+            <ion-col size="4">
+              <ion-button color="success" fill="clear" routerLink="/dispositivo">
+                <ion-icon slot="icon-only" name="reader"></ion-icon>
+              </ion-button>
+            </ion-col>
+            <ion-col size="4">
+              <ion-button (click)="alternarVista()" color="secondary" fill="clear">
+                <ion-icon slot="icon-only" [name]="estadoVista ? 'eye' : 'eye-off'"></ion-icon>
+              </ion-button>
+            </ion-col>
+            <ion-col size="4">
+              <ion-button (click)="eliminarDispositivo()" color="danger" fill="clear">
+                <ion-icon slot="icon-only" name="trash-bin"></ion-icon>
+              </ion-button>
+            </ion-col>
+          </ion-row>
+        </ion-col>
+      </ion-row>
+      <ion-item-divider>
+        <ion-label>Cesto de basura ubicado en el cuarto de papá.</ion-label>
+      </ion-item-divider>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

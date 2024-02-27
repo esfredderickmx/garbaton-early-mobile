@@ -1,0 +1,36 @@
+<ion-content class="ion-padding fondo">
+  <ion-card class="ion-text-center">
+    <ion-card-header color="secundario-oscuro">
+      <ion-card-title>Registrarse</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <form #formulario="ngForm" (ngSubmit)="registrarUsuario(formulario)" class="ion-padding-top">    
+        <ion-item class="ion-margin-bottom">
+          <ion-label>Nombre</ion-label>
+          <ion-input type="text" placeholder="Ingrese su nombre" name="nombre" [(ngModel)]="usuario.nombre" autocomplete="off" required></ion-input>
+        </ion-item>
+        <ion-item class="ion-margin-bottom">
+          <ion-label>Apellido</ion-label>
+          <ion-input type="text" placeholder="Ingrese su apellido" name="apellido" [(ngModel)]="usuario.apellido" autocomplete="off" required></ion-input>
+        </ion-item>
+        <ion-item class="ion-margin-bottom">
+          <ion-label>Email</ion-label>
+          <ion-input type="email" placeholder="Ingrese su correo electrónico" name="email" [(ngModel)]="usuario.email" pattern="^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$" autocomplete="off" required></ion-input>
+        </ion-item>
+        <ion-item class="ion-margin-bottom">
+          <ion-label>Contraseña</ion-label>
+          <ion-input type="password" name="password" [(ngModel)]="usuario.password" autocomplete="off" required></ion-input>
+        </ion-item>
+        <ion-button class="ion-margin-bottom" color="secundario-oscuro" expand="block" type="submit" [disabled]="formulario.invalid">Registrarse</ion-button>
+      </form>
+      <ion-text color="secundario-claro" routerLink="/acceso">
+        <p>¿Ya tienes una cuenta? ¡Accede aquí!</p>
+      </ion-text>
+      <ion-text color="secundario-oscuro" routerLink="/principal">
+        <p>Cancelar registro</p>
+      </ion-text>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
+
+<app-pie></app-pie>

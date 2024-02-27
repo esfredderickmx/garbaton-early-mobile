@@ -1,0 +1,52 @@
+<ion-header>
+  <ion-toolbar color="primario-oscuro">
+    <ion-buttons slot="start">
+      <app-atras></app-atras>
+    </ion-buttons>
+    <ion-title>Dispositivos favoritos</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-row class="ion-justify-content-center">
+    <ion-col size="10">
+      <ion-text color="medium">
+        <h4 *ngIf="numeroDispositivos<1" class="ion-text-center">No existen dispositivos marcados como favoritos, agrega alguno presionando el botón con forma de estrella desde la interfaz principal</h4>
+      </ion-text>
+    </ion-col>
+  </ion-row>
+
+  <ion-card color="secundario-claro" *ngFor="let dispositivo of dispositivos">
+    <ion-item color="secundario-oscuro">
+      <ion-buttons slot="end">
+        <ion-button (click)="alternarFavorito(dispositivo.info.id, dispositivo.estado)" color="secundario-claro" fill="clear">
+          <ion-icon slot="icon-only" [name]="dispositivo.estado ?  'star': 'star-outline'"></ion-icon>
+        </ion-button>
+        <ion-button color="primario-claro" fill="clear" routerLink="/dispositivo/{{dispositivo.info.id}}">
+          <ion-icon slot="icon-only" name="brush"></ion-icon>
+        </ion-button>
+        <ion-button (click)="eliminarDispositivo(dispositivo.info.id)" color="terciario-claro" fill="clear">
+          <ion-icon slot="icon-only" name="trash"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+      <ion-card-title routerLink="/estadisticas/{{dispositivo.info.id}}">{{dispositivo.info.nombre}}</ion-card-title>
+    </ion-item>
+    <ion-card-content color="secundario-claro">
+      <ion-row>
+        <ion-col size="6">
+          En uso por <ion-text *ngIf="dispositivo.datos.tiempo.dias>0">{{dispositivo.datos.tiempo.dias}}d </ion-text><ion-text *ngIf="dispositivo.datos.tiempo.horas>0">{{dispositivo.datos.tiempo.horas}}hr </ion-text>{{dispositivo.datos.tiempo.minutos}}min <ion-text *ngIf="dispositivo.datos.tiempo.dias<1">{{dispositivo.datos.tiempo.segundos}}s</ion-text>
+        </ion-col>
+        <ion-col class="ion-text-end" size="6">
+            <ion-text [color]="dispositivo.datos.basura>=dispositivo.info.limite ? 'terciario-oscuro' : ''"><h1>{{(dispositivo.datos.basura).toFixed(3)}}/{{dispositivo.info.limite}} KGs</h1></ion-text>
+            <ion-text><h6>{{((dispositivo.info.limite)-(dispositivo.datos.basura)).toFixed(0)}} KGs disponibles <br></h6></ion-text>
+            <ion-text [color]="dispositivo.datos.interacciones>=dispositivo.info.promedio ? 'terciario-oscuro' : ''"><h2 class="ion-padding-top">{{dispositivo.datos.interacciones}}/{{dispositivo.info.promedio}} interacciones</h2></ion-text>
+            <ion-text><h6>{{dispositivo.info.promedio-dispositivo.datos.interacciones}} restantes</h6></ion-text>
+        </ion-col>
+      </ion-row>
+    </ion-card-content>
+    <ion-item class="ion-no-margin">
+      <ion-text color="dark"><ion-card-subtitle>{{dispositivo.info.descripcion}}</ion-card-subtitle>
+      </ion-text>
+    </ion-item>
+  </ion-card>
+</ion-content>

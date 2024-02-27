@@ -1,0 +1,7 @@
+{
+  "name": "Vistas",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

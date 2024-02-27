@@ -1,0 +1,40 @@
+<ion-header>
+  <ion-toolbar color="primario-oscuro">
+    <ion-buttons slot="start">
+      <app-atras></app-atras>
+    </ion-buttons>
+    <ion-title>{{info.nombre}} - Estadísticas</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-card color="medium">
+    <ion-card-header color="secundario-oscuro">
+      <ion-card-title><ion-text color="dark">En tiempo real</ion-text></ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-row class="ion-align-items-center">
+        <ion-col size="12">
+          <app-grafica [datos]="universoFecha" [escalaMaxima]="limite"></app-grafica>
+        </ion-col>
+      </ion-row>
+    </ion-card-content>
+    <ion-item class="ion-no-margin">
+      <ion-text>Ubicado en {{ubicacion.municipio}}, {{ubicacion.estado}}</ion-text>
+    </ion-item>
+  </ion-card>
+
+  
+  <ion-card color="medium">
+    <ion-card-header color="secundario-oscuro">
+      <ion-card-title><ion-text color="dark">Desechos máximos</ion-text></ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-row class="ion-align-items-center">
+        <ion-col size="12">
+          <app-grafica [datos]="universoPeso" [escalaMaxima]="limite"></app-grafica>
+        </ion-col>
+      </ion-row>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

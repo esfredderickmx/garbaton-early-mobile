@@ -1,0 +1,6 @@
+{
+	"appId": "com.garbaton.integradora",
+	"appName": "Garbatón",
+	"webDir": "www",
+	"bundledWebRuntime": false
+}

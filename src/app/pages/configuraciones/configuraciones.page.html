@@ -1,0 +1,26 @@
+<ion-header>
+  <ion-toolbar color="primario-oscuro">
+    <ion-buttons slot="start">
+      <app-atras></app-atras>
+    </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-button (click)="cerrarSesion()">
+        <ion-icon slot="icon-only" name="log-out"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Configuraciones</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-list>
+    <ion-item>
+      <ion-label>Descripción de dispositivos</ion-label>
+      <ion-toggle (ngModelChange)="alternarDescripciones()" [checked]="descripciones" slot="start" color="secundario-claro" id="toggleDescripcion" [(ngModel)]="descripciones"></ion-toggle>
+    </ion-item>
+    <ion-item>
+      <ion-label>Sistema de dispositivos favoritos</ion-label>
+      <ion-toggle (ngModelChange)="alternarFavoritos()" [checked]="favoritos" slot="start" color="secundario-claro" id="toggleFavoritos" [(ngModel)]="favoritos"></ion-toggle>
+    </ion-item>
+  </ion-list>
+</ion-content>

@@ -1,0 +1,28 @@
+<ion-content class="ion-padding fondo">
+  <ion-card class="ion-text-center">
+    <ion-card-header color="primario-oscuro">
+      <ion-card-title>Iniciar sesión</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <form #formulario="ngForm" (ngSubmit)="iniciarSesion(formulario)" class="ion-padding-top">    
+        <ion-item class="ion-margin-bottom">
+          <ion-label>E-mail</ion-label>
+          <ion-input type="email" placeholder="Ingrese su correo electrónico" name="email" [(ngModel)]="usuario.email" pattern="^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$" autocomplete="off" required></ion-input>
+        </ion-item>
+        <ion-item class="ion-margin-bottom">
+          <ion-label>Contraseña</ion-label>
+          <ion-input type="password" name="password" [(ngModel)]="usuario.password" autocomplete="off" required></ion-input>
+        </ion-item>
+        <ion-button class="ion-margin-bottom" color="primario-oscuro" expand="block" type="submit" [disabled]="formulario.invalid">Ingresar</ion-button>
+      </form>
+      <ion-text color="primario-claro" routerLink="/registro">
+        <p>¿Aún sin cuenta? ¡Regístrate aquí!</p>
+      </ion-text>
+      <ion-text color="primario-oscuro" routerLink="/principal">
+        <p>Cancelar inicio de sesión</p>
+      </ion-text>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
+
+<app-pie></app-pie>
